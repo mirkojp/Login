@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Inicio de Sesión</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="logo-container">
+        <a href="tu-enlace-aqui" class="logo-link">
+            <img src="img/log.png" alt="Logo" class="logo">
+            <span class="logo-text">ImportFunko</span>
+        </a>
+    </div>
+    
+    <div class="container">
+        <form class="register-form" id="login-form"> <!-- ID del formulario de inicio de sesión -->
+            <h2>Inicia Sesión</h2>
+            <input type="text" id="username" placeholder="Nombre de Usuario" required>
+            <div class="password-container">
+                <input type="password" id="password" placeholder="Contraseña" required>
+                <img class="toggle-password" id="toggle-password" src="img/hidden.png" alt="Mostrar contraseña" onclick="togglePasswordVisibility('password', 'toggle-password')">
+            </div>            
+            <p>¿No tenés cuenta? <a href="index.html">Regístrate aquí</a></p>
+            <button type="submit" class="submit-btn">Entrar</button>
+            <div class="social-login">
+                <p>o continúa con</p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com" target="_blank">
+                        <img src="img/facebook.png" alt="Facebook">
+                    </a>
+                    <a href="https://www.apple.com" target="_blank">
+                        <img src="img/apple.png" alt="Apple">
+                    </a>
+                    <a href="https://www.google.com" target="_blank">
+                        <img src="img/google.png" alt="Google">
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>
