@@ -1,8 +1,13 @@
 // Inicializa el SDK de MercadoPago con tu clave pública
-const mp = new MercadoPago('APP_USR-61f3d47d-4634-4a02-9185-68f2255e63c2'); // Reemplaza con tu clave pública
+const mp = new MercadoPago('APP_USR-61f3d47d-4634-4a02-9185-68f2255e63c2'); 
 
 // Obtén el preferenceId desde Django
-fetch('https://practica-django-fxpz.onrender.com/create_preference/')
+fetch('https://practica-django-fxpz.onrender.com/create_preference/', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+})
     .then(response => response.json())
     .then(data => {
         const preferenceId = data.preference_id;
