@@ -13,18 +13,15 @@
 //     return cookieValue;
 // }
 
-function getCookie(name) {
-    let cookieArr = document.cookie.split(";"); // Split all cookies into an array
-    for (let i = 0; i < cookieArr.length; i++) {
-        let cookie = cookieArr[i].trim(); // Trim whitespace
-        if (cookie.startsWith(name + "=")) {
-            return cookie.substring(name.length + 1); // Return cookie value after "="
-        }
-    }
-    return null; // Return null if cookie doesn't exist
-}
+fetch('/initial-data/')
+    .then(response => response.json())
+    .then(data => {
+        const csrfToken = data.csrf_token;
+        // Use the csrfToken in subsequent requests
+    })
+    .catch(error => console.error('Error:', error));
 
-const csrftoken = getCookie('csrftoken');
+// const csrftoken = getCookie('csrftoken');
 console.log(csrftoken)
 // Inicializa el SDK de MercadoPago con tu clave pública
 
@@ -35,7 +32,7 @@ fetch('https://practica-django-fxpz.onrender.com/create_preference/', {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json',
-        'X-CSRFToken': csrftoken,
+        'X-CSRFToken': csrfToken,
     },
     credentials: 'include',
 })
