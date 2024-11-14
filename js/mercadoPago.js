@@ -17,6 +17,7 @@ function getCookie(name) {
     let cookieArr = document.cookie.split(";"); // Split all cookies into an array
     for (let i = 0; i < cookieArr.length; i++) {
         let cookie = cookieArr[i].trim(); // Trim whitespace
+        console.log(cookie)
         if (cookie.startsWith(name + "=")) {
             return cookie.substring(name.length + 1); // Return cookie value after "="
         }
