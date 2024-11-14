@@ -73,6 +73,7 @@ const mp = new MercadoPago('APP_USR-61f3d47d-4634-4a02-9185-68f2255e63c2');
 
 // Fetch the CSRF token and then use it for creating the preference
 fetchCsrfToken().then(csrfToken => {
+    console.log(csrfToken)
     if (!csrfToken) {
         console.error("CSRF token could not be fetched.");
         return;
