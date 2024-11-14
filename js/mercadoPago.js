@@ -1,16 +1,27 @@
+// function getCookie(name) {
+//     let cookieValue = null;
+//     if (document.cookie && document.cookie !== '') {
+//         const cookies = document.cookie.split(';');
+//         for (let i = 0; i < cookies.length; i++) {
+//             const cookie = cookies[i].trim();
+//             if (cookie.substring(0, name.length + 1) === (name + '=')) {
+//                 cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+//                 break;
+//             }
+//         }
+//     }
+//     return cookieValue;
+// }
+
 function getCookie(name) {
-    let cookieValue = null;
-    if (document.cookie && document.cookie !== '') {
-        const cookies = document.cookie.split(';');
-        for (let i = 0; i < cookies.length; i++) {
-            const cookie = cookies[i].trim();
-            if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                break;
-            }
+    let cookieArr = document.cookie.split(";"); // Split all cookies into an array
+    for (let i = 0; i < cookieArr.length; i++) {
+        let cookie = cookieArr[i].trim(); // Trim whitespace
+        if (cookie.startsWith(name + "=")) {
+            return cookie.substring(name.length + 1); // Return cookie value after "="
         }
     }
-    return cookieValue;
+    return null; // Return null if cookie doesn't exist
 }
 
 const csrftoken = getCookie('csrftoken');
