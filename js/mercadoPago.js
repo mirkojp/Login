@@ -49,12 +49,18 @@ const mp = new MercadoPago('APP_USR-61f3d47d-4634-4a02-9185-68f2255e63c2');
 //         });
 //     });
 
-fetch('https://practica-django-fxpz.onrender.com/create_preference/')
+fetch('https://practica-django-fxpz.onrender.com/create_preference/', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    credentials: 'include',  // Ensure cookies are included if necessary
+})
     .then(response => response.json())
     .then(data => {
         const preferenceId = data.preference_id;
 
-        // Carga el widget de Wallet con el preferenceId
+        // Load the MercadoPago Wallet widget with the preferenceId
         mp.bricks().create("wallet", "wallet_container", {
             initialization: {
                 preferenceId: preferenceId
@@ -69,4 +75,6 @@ fetch('https://practica-django-fxpz.onrender.com/create_preference/')
         }).catch(error => {
             console.error("Error al cargar el widget de Wallet:", error);
         });
+    }).catch(error => {
+        console.error("Error fetching preferenceId:", error);
     });
