@@ -15,7 +15,7 @@ function getCookie(name) {
 
 
 // const csrftoken = getCookie('csrftoken');
-
+console.log(csrftoken)
 // Inicializa el SDK de MercadoPago con tu clave pública
 
 const mp = new MercadoPago('APP_USR-61f3d47d-4634-4a02-9185-68f2255e63c2'); 
@@ -25,7 +25,7 @@ fetch('https://practica-django-fxpz.onrender.com/create_preference/', {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json',
-        //'X-CSRFToken': csrfToken,
+        'X-CSRFToken': csrfToken,
     },
     credentials: 'include',
 })
