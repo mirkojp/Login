@@ -25,7 +25,7 @@ fetch('https://practica-django-fxpz.onrender.com/create_preference/', {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json',
-        'X-CSRFToken': csrfToken,
+        'X-CSRFToken': csrftoken,
     },
     credentials: 'include',
 })
