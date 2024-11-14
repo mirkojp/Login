@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Registro</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '1205840470714772', // reemplaza con tu propio App ID
+                cookie: true,
+                xfbml: true,
+                version: 'v21.0'      // usa la versión correcta
+            });
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/es_ES/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    
+
+</head>
+<body>
+    <div class="logo-container">
+        <a href="#" class="logo-link">
+            <img src="img/log.png" alt="Logo" class="logo">
+            <span class="logo-text">ImportFunko</span>
+        </a>
+    </div>
+
+    <div class="container">
+        <form id="register-form" class="register-form">
+            <h2>Regístrate</h2>
+            <input type="email" id="email" placeholder="Correo Electrónico" required>
+            <input type="text" id="username" placeholder="Nombre de Usuario" required>
+            <input type="text" id="telefono" placeholder="Número de Teléfono (opcional)">
+            
+            <div class="password-container">
+                <input type="password" id="password" placeholder="Contraseña" required>
+                <img class="toggle-password" id="toggle-password" 
+                     src="img/hidden.png" alt="Mostrar contraseña" 
+                     onclick="togglePasswordVisibility('password', 'toggle-password')">
+            </div>
+
+            <div class="password-container">
+                <input type="password" id="confirm-password" placeholder="Confirmar Contraseña" required>
+                <img class="toggle-password" id="toggle-confirm-password" 
+                     src="img/hidden.png" alt="Mostrar contraseña" 
+                     onclick="togglePasswordVisibility('confirm-password', 'toggle-confirm-password')">
+            </div>
+
+            <p>¿Ya tenés cuenta? <a href="login.html">Inicia sesión aquí</a></p>
+            <button type="submit" class="submit-btn">Registrarse</button>
+
+            <div class="social-login">
+                <p>o continúa con</p>
+                <div class="social-icons">
+                    <a target="_blank" rel="noopener noreferrer">
+                        <img src="img/git.png" alt="Github" onclick="loginWithGitHub()">
+                    </a>
+                    <a target="_blank" rel="noopener noreferrer">
+                        <img src="img/logo_twitter.webp" alt="Twitter" onclick="loginWithTwitter()">
+                    </a>
+                    <div id="g_id_onload" data-client_id="455918670543-a7apj0vtfdjc3r2e9g0m0h3mr7dr0q5u.apps.googleusercontent.com"
+                        data-callback="handleGoogleSignIn">
+                    </div>
+                    <div class="g_id_signin" data-type="standard" data-theme="outline" data-size="large" data-shape="circle">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
