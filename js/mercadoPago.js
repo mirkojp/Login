@@ -15,7 +15,7 @@ function getCookie(name) {
 
 
 // const csrftoken = getCookie('csrftoken');
-console.log(csrftoken)
+
 // Inicializa el SDK de MercadoPago con tu clave pública
 
 const mp = new MercadoPago('APP_USR-61f3d47d-4634-4a02-9185-68f2255e63c2'); 
